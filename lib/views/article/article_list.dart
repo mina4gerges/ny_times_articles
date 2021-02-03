@@ -3,10 +3,9 @@ import 'package:ny_times_articles/widgets/error.dart';
 import 'package:ny_times_articles/global/messages.dart';
 import 'package:ny_times_articles/widgets/loading.dart';
 import 'package:ny_times_articles/models/error_model.dart';
-import 'package:ny_times_articles/controllers/article_api.dart';
 import 'package:ny_times_articles/views/article/article_item.dart';
-import 'package:ny_times_articles/models/article/article_model.dart';
-import 'package:ny_times_articles/models/article/article_response.dart';
+import 'package:ny_times_articles/models/article_model.dart';
+import 'package:ny_times_articles/controllers/article_controller.dart';
 
 class ArticleList extends StatefulWidget {
   @override
@@ -14,7 +13,7 @@ class ArticleList extends StatefulWidget {
 }
 
 class _ArticleListState extends State<ArticleList> {
-  ArticleApi api = ArticleApi();
+  ArticleController articleController = ArticleController();
 
   bool error = false;
   bool isLoading = false;
@@ -33,26 +32,29 @@ class _ArticleListState extends State<ArticleList> {
         isLoading = true;
       });
 
-      ArticleResponse articleResponse = await api.getMostPopularArticles();
+      await articleController.loadData();
 
       setState(() {
+        error = false;
         isLoading = false;
-        error = articleResponse.error;
-        articles = articleResponse.articles;
-        errorDescription = articleResponse.errorDescription;
+        errorDescription = '';
+        articles = articleController.articles;
       });
     } catch (e) {
       setState(() {
-        isLoading = false;
         error = true;
         articles = [];
+        isLoading = false;
+        errorDescription = e;
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    if (isLoading) return Loading();
+    if (isLoading) {
+      return Loading();
+    }
 
     if (error)
       return Error(
@@ -75,7 +77,7 @@ class _ArticleListState extends State<ArticleList> {
           ),
         ),
       );
-    
+
     return ListView.separated(
       itemCount: articles.length,
       itemBuilder: (BuildContext context, int index) {

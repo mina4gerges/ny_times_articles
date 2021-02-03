@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ny_times_articles/widgets/date.dart';
 import 'package:ny_times_articles/widgets/white_space.dart';
-import 'package:ny_times_articles/models/article/article_model.dart';
+import 'package:ny_times_articles/models/article_model.dart';
 
 class ArticleDetails extends StatelessWidget {
   final Article article;
