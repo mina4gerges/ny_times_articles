@@ -30,6 +30,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'NY Times',
       theme: ThemeData(
+        // headline6 used for AppBar color
+        primaryTextTheme: TextTheme(
+          headline6: TextStyle(color: Colors.white),
+        ),
         appBarTheme: AppBarTheme(
           iconTheme: IconThemeData(
             color: Colors.white,
@@ -62,7 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(
           widget.title,
-          style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
           tooltip: 'Menu',

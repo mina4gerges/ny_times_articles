@@ -32,7 +32,8 @@ class Article {
         tempImages.length > 0 ? tempImages[0]['media-metadata'] : [];
 
     // Get the first element (random)
-    String finalImagePath = finalImages.length > 0 ? finalImages[0]['url'] : '';
+    String finalImagePath =
+        finalImages.length > 0 ? finalImages[0]['url'] : null;
 
     id = article['id'];
     images = finalImages;

@@ -10,6 +10,22 @@ class ArticleItem extends StatelessWidget {
 
   ArticleItem({Key key, @required this.article}) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          _getLeftColumn(article.imagePath),
+          _getMiddleColumn(article),
+          _getRightColumn(context),
+        ],
+      ),
+    );
+  }
+
+  // Handle click
   void _onArticleClick(BuildContext context) {
     Navigator.push(
       context,
@@ -21,6 +37,7 @@ class ArticleItem extends StatelessWidget {
     );
   }
 
+  // Left side display of the article
   _getLeftColumn(String imagePath) => Container(
           child: CircleAvatar(
         radius: 30.0,
@@ -29,6 +46,7 @@ class ArticleItem extends StatelessWidget {
             : AssetImage('assets/images/NY.jpg'),
       ));
 
+  // Middle side display of the article
   _getMiddleColumn(Article article) => Expanded(
       flex: 2,
       child: Container(
@@ -48,7 +66,7 @@ class ArticleItem extends StatelessWidget {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                color: Color(0xFF848484),
+                color: const Color(0xFF848484),
               ),
             ),
             WhiteSpace(space: 2),
@@ -61,14 +79,14 @@ class ArticleItem extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: Color(0xFF848484),
+                      color: const Color(0xFF848484),
                     ),
                   ),
                 ),
                 Date(
                     date: article.creationDate,
                     textStyle: TextStyle(
-                      color: Color(0xFF848484),
+                      color: const Color(0xFF848484),
                     )),
               ],
             ),
@@ -76,6 +94,7 @@ class ArticleItem extends StatelessWidget {
         ),
       ));
 
+  // Right side display of the article
   _getRightColumn(BuildContext context) => Container(
         child: IconButton(
           icon: const Icon(Icons.arrow_forward_ios),
@@ -83,19 +102,4 @@ class ArticleItem extends StatelessWidget {
           onPressed: () => _onArticleClick(context),
         ),
       );
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          _getLeftColumn(null),
-          _getMiddleColumn(article),
-          _getRightColumn(context),
-        ],
-      ),
-    );
-  }
 }
