@@ -43,7 +43,7 @@ class ArticleItem extends StatelessWidget {
         radius: 30.0,
         backgroundImage: imagePath != null
             ? NetworkImage(imagePath)
-            : AssetImage('assets/images/NY.jpg'),
+            : AssetImage('assets/images/ny_icon.jpg'),
       ));
 
   // Middle side display of the article
