@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ny_times_articles/widgets/date.dart';
+import 'package:ny_times_articles/widgets/error.dart';
+import 'package:ny_times_articles/global/messages.dart';
+import 'package:ny_times_articles/models/error_model.dart';
 import 'package:ny_times_articles/widgets/white_space.dart';
 import 'package:ny_times_articles/models/article_model.dart';
 
@@ -14,8 +17,14 @@ class ArticleDetails extends StatelessWidget {
       appBar: AppBar(
         title: Text(article.title),
       ),
-      body: Container(
-        padding: EdgeInsets.all(10.0),
+      body: _getBodyDisplay(context),
+    );
+  }
+
+  Widget _getBodyDisplay(BuildContext context) {
+    try {
+      return Container(
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           children: <Widget>[
             Text(
@@ -45,7 +54,19 @@ class ArticleDetails extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
+    } catch (e) {
+      print("ERROR $e");
+
+      return Error(
+        errorMessage: ErrorMessage(
+          description: e?.message ?? null,
+          action: ErrorAction(
+            title: GlobalMessages.GoBack,
+            onPress: () => Navigator.pop(context),
+          ),
+        ),
+      );
+    }
   }
 }

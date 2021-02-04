@@ -7,7 +7,7 @@ class ErrorMessage {
   final ErrorAction action;
 
   ErrorMessage({
-    this.title = GlobalMessages.ErrorTitle,
+    this.title = GlobalMessages.Error,
     this.description,
     this.action,
   });

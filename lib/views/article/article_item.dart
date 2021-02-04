@@ -17,9 +17,9 @@ class ArticleItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          _getLeftColumn(article.imagePath),
-          _getMiddleColumn(article),
-          _getRightColumn(context),
+          _getLeftColumnDisplay(article.imagePath),
+          _getMiddleColumnDisplay(article),
+          _getRightColumnDisplay(context),
         ],
       ),
     );
@@ -38,16 +38,16 @@ class ArticleItem extends StatelessWidget {
   }
 
   // Left side display of the article
-  Widget _getLeftColumn(String imagePath) => Container(
+  Widget _getLeftColumnDisplay(String imagePath) => Container(
           child: CircleAvatar(
         radius: 30.0,
         backgroundImage: imagePath != null
             ? NetworkImage(imagePath)
-            : AssetImage('assets/images/ny_icon.jpg'),
+            : AssetImage('assets/images/ny_icon.png'),
       ));
 
   // Middle side display of the article
-  Widget _getMiddleColumn(Article article) => Expanded(
+  Widget _getMiddleColumnDisplay(Article article) => Expanded(
       flex: 2,
       child: Container(
         padding: const EdgeInsets.only(right: 10.0, left: 10.0),
@@ -95,7 +95,7 @@ class ArticleItem extends StatelessWidget {
       ));
 
   // Right side display of the article
-  Widget _getRightColumn(BuildContext context) => Container(
+  Widget _getRightColumnDisplay(BuildContext context) => Container(
         child: IconButton(
           icon: const Icon(Icons.arrow_forward_ios),
           tooltip: 'More',

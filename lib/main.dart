@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'views/article/article_list.dart';
 
 void main() {
@@ -69,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         leading: IconButton(
           tooltip: 'Menu',
-          icon: Icon(Icons.menu),
+          icon: const Icon(Icons.menu),
           onPressed: () => _onIconClick(),
         ),
         actions: <Widget>[
