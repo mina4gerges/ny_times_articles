@@ -2,7 +2,9 @@ import 'package:ny_times_articles/models/article_model.dart';
 import 'package:ny_times_articles/services/article_service.dart';
 
 class ArticleController {
-  ArticleService articleService = ArticleService();
+  final ArticleService articleService;
+
+  ArticleController({this.articleService});
 
   List<Article> articles = List<Article>();
 

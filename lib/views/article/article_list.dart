@@ -3,8 +3,9 @@ import 'package:ny_times_articles/widgets/error.dart';
 import 'package:ny_times_articles/global/messages.dart';
 import 'package:ny_times_articles/widgets/loading.dart';
 import 'package:ny_times_articles/models/error_model.dart';
-import 'package:ny_times_articles/views/article/article_item.dart';
 import 'package:ny_times_articles/models/article_model.dart';
+import 'package:ny_times_articles/services/article_service.dart';
+import 'package:ny_times_articles/views/article/article_item.dart';
 import 'package:ny_times_articles/controllers/article_controller.dart';
 
 class ArticleList extends StatefulWidget {
@@ -13,7 +14,8 @@ class ArticleList extends StatefulWidget {
 }
 
 class _ArticleListState extends State<ArticleList> {
-  ArticleController articleController = ArticleController();
+  ArticleController articleController =
+      ArticleController(articleService: ArticleService());
 
   bool error = false;
   bool isLoading = false;
