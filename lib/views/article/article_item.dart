@@ -13,7 +13,8 @@ class ArticleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8.0),
+      height: 115,
+      padding: EdgeInsets.all(5.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -52,42 +53,50 @@ class ArticleItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(right: 10.0, left: 10.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              article.title,
+              article?.title ?? '',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
             ),
-            WhiteSpace(),
-            Text(
-              article.author,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: const Color(0xFF848484),
-              ),
-            ),
-            WhiteSpace(space: 2),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Expanded(
-                  child: Text(
-                    article?.section?.toUpperCase(),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: const Color(0xFF848484),
-                    ),
+                Text(
+                  article?.author ?? '',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: const Color(0xFF848484),
                   ),
                 ),
-                Date(
-                    date: article.creationDate,
-                    textStyle: TextStyle(
-                      color: const Color(0xFF848484),
-                    )),
+                WhiteSpace(space: 2),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(
+                        article?.section?.toUpperCase() ?? '',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: const Color(0xFF848484),
+                        ),
+                      ),
+                    ),
+                    article.creationDate != null
+                        ? Date(
+                            date: article.creationDate,
+                            textStyle: TextStyle(
+                              color: const Color(0xFF848484),
+                            ),
+                          )
+                        : Container(),
+                  ],
+                ),
               ],
             ),
           ],
