@@ -3,12 +3,12 @@ import 'package:flutter/foundation.dart';
 class Article {
   int id;
   String title;
-  List images;
   String author;
   String section;
   String imagePath;
   String description;
   String creationDate;
+  List<Map<String, dynamic>> images;
 
   Article({
     @required this.id,
@@ -23,13 +23,16 @@ class Article {
 
   Article.fromJson(Map<String, dynamic> article) {
     // Filter media to get only images
-    List tempImages =
-        article['media']?.where((val) => val['type'] == 'image')?.toList() ??
-            [];
+    List<Map<String, dynamic>> tempImages = List<Map<String, dynamic>>.from(
+            article['media']
+                ?.where((val) => val['type'] == 'image')
+                ?.toList()) ??
+        [];
 
     // Get the first element then 'media-metadata' (contains array of image obj )
-    List finalImages =
-        tempImages.length > 0 ? tempImages[0]['media-metadata'] : [];
+    List<Map<String, dynamic>> finalImages = tempImages.length > 0
+        ? List<Map<String, dynamic>>.from(tempImages[0]['media-metadata'])
+        : [];
 
     // Get the first element (random)
     String finalImagePath =

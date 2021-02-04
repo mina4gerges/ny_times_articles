@@ -25,7 +25,8 @@ class ArticleService {
         throw (responseBody['fault']['faultstring']);
     } on SocketException {
       throw (GlobalMessages.NoInternetConnection);
-    } on Error {
+    } on Error catch (e) {
+      print("ERROR: $e");
       throw (GlobalMessages.UnknownError);
     }
   }

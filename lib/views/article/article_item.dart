@@ -38,7 +38,7 @@ class ArticleItem extends StatelessWidget {
   }
 
   // Left side display of the article
-  _getLeftColumn(String imagePath) => Container(
+  Widget _getLeftColumn(String imagePath) => Container(
           child: CircleAvatar(
         radius: 30.0,
         backgroundImage: imagePath != null
@@ -47,7 +47,7 @@ class ArticleItem extends StatelessWidget {
       ));
 
   // Middle side display of the article
-  _getMiddleColumn(Article article) => Expanded(
+  Widget _getMiddleColumn(Article article) => Expanded(
       flex: 2,
       child: Container(
         padding: const EdgeInsets.only(right: 10.0, left: 10.0),
@@ -95,7 +95,7 @@ class ArticleItem extends StatelessWidget {
       ));
 
   // Right side display of the article
-  _getRightColumn(BuildContext context) => Container(
+  Widget _getRightColumn(BuildContext context) => Container(
         child: IconButton(
           icon: const Icon(Icons.arrow_forward_ios),
           tooltip: 'More',
