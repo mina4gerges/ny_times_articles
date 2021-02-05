@@ -10,7 +10,7 @@ Mobile application written in flutter to get the most popular articles.
 6. [How to generate coverage reports](#coverageReports)
 7. [Architecture](#architecture)
 8. [Development environment](#developementEnvirement)
-   10.[SonarQube report](#sonarQubeReport)
+10.[SonarQube report](#sonarQubeReport)
 9. [ScreenShots](#screenShots)
 
 - <h2 name="prerequisites">Prerequisites</h2>
@@ -18,8 +18,8 @@ Mobile application written in flutter to get the most popular articles.
     - **flutter SDK** installed (https://flutter.dev). To check if **flutter** is installed, run this command: **flutter
       --version**
 
-    - At least one editor installed ex: **Android Studio** (https://developer.android.com/studio), **
-      Intellij** (https://www.jetbrains.com/idea/) or **VS code** (https://code.visualstudio.com)
+    - At least one editor installed ex: **Android Studio** (https://developer.android.com/studio), **IntelliJ** 
+      (https://www.jetbrains.com/idea/) or **VS code** (https://code.visualstudio.com)
 
     - At least one device connected, **emulator**, **simulator** or a **physical device**
 
@@ -108,8 +108,8 @@ Mobile application written in flutter to get the most popular articles.
         - Download the plugin for analyzing dart language and flutter because sonarqube doesn't own
           it (https://github.com/insideapp-oss/sonar-flutter/releases/download/0.2.1/sonar-flutter-plugin-0.2.1.jar)
 
-        - After installing this plugin, added it to where you installed **SonarQube** in a specific folder: **
-          YOUR_PATH/sonarqube/extensions/plugins/**
+        - After installing this plugin, added it to where you installed **SonarQube** in a specific folder: 
+          **YOUR_PATH/sonarqube/extensions/plugins/**
 
         - Run **SonarQube** by running this command: **YOUR_PATH/sonarqube/bin/[OS]/sonar.sh console**. 'OS' refers to
           your operating system
@@ -137,10 +137,10 @@ Mobile application written in flutter to get the most popular articles.
 - <h2 name="screenShots">ScreenShots</h2>
 
   IOS articles | IOS article detail
-                  :-----------:|:-----------------: 
+  :-----------:|:-----------------: 
   ![Introduction Screen](screenshots/ios-home.png?raw=true) | ![Introduction Screen](screenshots/ios-detail.png?raw=true)
 
   Android articles | Android article detail
-                  :---------------:|:----------------------: 
+  :---------------:|:----------------------: 
   ![Introduction Screen](screenshots/android-home.png?raw=true) | ![Introduction Screen](screenshots/android-detail.png?raw=true)
 
