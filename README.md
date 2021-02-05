@@ -123,7 +123,7 @@ Mobile application written in flutter to get the most popular articles.
 
         - Now, **SonarQube** is configured and running to run analysis and generate reports
 
-    - How to run reports ?
+    - How to generate reports ?
 
         - Open a command line/terminal (root folder)
 
