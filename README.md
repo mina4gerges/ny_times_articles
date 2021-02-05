@@ -91,7 +91,7 @@ Mobile application written in flutter to get the most popular articles.
 
     - macOS Big Sur (version 11.1)
 
-    - Iphone 11 (Simulator ios 14.2) And Pixel 4 XL API 30 (emulator)
+    - Iphone 11 (Simulator ios 14.2) And Pixel 4 XL API 30 (Emulator)
 
 - <h2 name="sonarQubeReport">SonarQube report</h2>
 
@@ -132,6 +132,12 @@ Mobile application written in flutter to get the most popular articles.
 
         - Run the analysis and publish to the **SonarQube** server **sonar-scanner** (Be sure you added **SonarScanner**
           to your path)
+          
+        - Open the web browser: **localhost:9000**
+    
+        - Login using you credentials (**admin** is the default value for the login and password)
+    
+        - Congrats 🎉, now you can see the reports
 
 
 - <h2 name="screenShots">ScreenShots</h2>
