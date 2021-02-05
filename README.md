@@ -1,17 +1,33 @@
 # Popular articles
 
-Mobile application to get the most popular articles.
+Mobile application written in flutter to get the most popular articles.
 
-1. [Installation](#installation)
-2. [How to run the app](#runApp)
-3. [How to test the app](#testApp)
-4. [How to generate coverage reports](#coverageReports)
-5. [ScreenShots](#screenShots)
-6. [Development environment](#developementEnvirement)
+1. [Prerequisites](#prerequisites)
+2. [Installation](#installation)
+3. [How to run the app](#runApp)
+4. [How to test the app](#testApp)
+5. [How to generate coverage reports](#coverageReports)
+6. [Architecture](#architecture)
+7. [ScreenShots](#screenShots)
+8. [Development environment](#developementEnvirement)
+
+- <h2 name="prerequisites">Prerequisites</h2>
+
+    - **Flutter SDK** installed (https://flutter.dev)
+
+    - At least one editor installed ex: **Android Studio** (https://developer.android.com/studio), **
+      Intellij** (https://www.jetbrains.com/idea/) or **VS code** (https://code.visualstudio.com)
+
+    - At least one device connected, **emulator**, **simulator** or a **physical device**
+
+    - Check if the environment is ready to run the app by using this command: **flutter doctor**. This command tells you
+      if they are any issue
+
+    - Congrats 😎 you are ready to install the app
 
 - <h2 name="installation">Installation</h2>
 
-    - open a command line/terminal
+    - Open a command line/terminal
 
     - git clone https://github.com/mina4gerges/popular_articles.git
 
@@ -24,7 +40,7 @@ Mobile application to get the most popular articles.
 
     - Set the API key in **lib/global/api.dart**
 
-    - Hit **flutter run** to run the application
+    - Hit **flutter run** to run the app
 
     - Congrats 🎉 The app is running now
 
@@ -35,21 +51,33 @@ Mobile application to get the most popular articles.
 - <h2 name="testApp">How to test the app</h2>
 
     - In the root of the app, open a command line/terminal and hit **flutter test**
-      
+
 - <h2 name="coverageReports">How to generate coverage reports</h2>
 
-  - In the root of the app, open a command line/terminal and hit **flutter test --coverage**
-    
-  - A folder hase been created by **flutter**, container the coverage reports.
+    - In the root of the app, open a command line/terminal and hit **flutter test --coverage**
+
+    - A folder hase been created by **flutter**, container the coverage reports.
+
+- <h2 name="architecture">Architecture</h2>
+
+    - In this app we are using MVC architecture (Model, View, Controller)
+
+    - The controllers contain: list of articles, and a function to load these articles
+
+    - The models contain: article modal and error message modal. Plan old dart object (PODO)
+
+    - The views contain: articles list view, article details view and article item view
+
+    - The services contain: function to load articles for the API + handling the request error
 
 - <h2 name="screenShots">ScreenShots</h2>
 
-  IOS articles | IOS article detail 
-      :--------------------------------------------:|:-------------------------------: 
-  ![Introduction Screen](screenshots/IOS-home.png?raw=true) | ![Introduction Screen](screenshots/IOS-detail.png?raw=true)
+  IOS articles | IOS article detail
+    :-----------:|:-----------------: 
+  ![Introduction Screen](screenshots/ios-home.png?raw=true) | ![Introduction Screen](screenshots/ios-detail.png?raw=true)
 
   Android articles | Android article detail
-        :--------------------------------------------:|:-------------------------------: 
+    :---------------:|:----------------------: 
   ![Introduction Screen](screenshots/android-home.png?raw=true) | ![Introduction Screen](screenshots/android-detail.png?raw=true)
 
 - <h2 name="developementEnvirement">Development environment</h2>
