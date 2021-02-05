@@ -6,10 +6,11 @@ Mobile application written in flutter to get the most popular articles.
 2. [Installation](#installation)
 3. [How to run the app](#runApp)
 4. [How to test the app](#testApp)
-5. [How to generate coverage reports](#coverageReports)
-6. [Architecture](#architecture)
-7. [Development environment](#developementEnvirement)
-8. [ScreenShots](#screenShots)
+5. [How to build an apk](#buildApk)
+6. [How to generate coverage reports](#coverageReports)
+7. [Architecture](#architecture)
+8. [Development environment](#developementEnvirement)
+9. [ScreenShots](#screenShots)
 
 - <h2 name="prerequisites">Prerequisites</h2>
 
@@ -52,6 +53,14 @@ Mobile application written in flutter to get the most popular articles.
 
     - In the root of the app, open a command line/terminal and hit **flutter test**
 
+- <h2 name="buildApk">How to build an apk</h2>
+
+  - In the root of the app, open a command line/terminal and hit **flutter build apk --split-per-abi**
+  
+  - This command results in three APK files in **popular_articles/build/app/outputs/apk/release/**
+  
+  - More info: https://flutter.dev/docs/deployment/android
+
 - <h2 name="coverageReports">How to generate coverage reports</h2>
 
     - In the root of the app, open a command line/terminal and hit **flutter test --coverage**
@@ -60,7 +69,7 @@ Mobile application written in flutter to get the most popular articles.
 
 - <h2 name="architecture">Architecture</h2>
 
-    - In this app we are using MVC architecture (Model, View, Controller)
+    - In this app we are using **MVC** architecture (Model, View, Controller)
 
     - The controllers contain: list of articles, and a function to load these articles
 
