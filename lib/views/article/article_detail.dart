@@ -6,11 +6,11 @@ import 'package:ny_times_articles/models/error_model.dart';
 import 'package:ny_times_articles/widgets/white_space.dart';
 import 'package:ny_times_articles/models/article_model.dart';
 
-/// ArticleDetails view to display article detail
-class ArticleDetails extends StatelessWidget {
+/// ArticleDetail view to display article detail
+class ArticleDetail extends StatelessWidget {
   final Article article;
 
-  ArticleDetails({Key key, @required this.article}) : super(key: key);
+  ArticleDetail({Key key, @required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

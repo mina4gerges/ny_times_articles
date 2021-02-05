@@ -10,7 +10,7 @@ class ArticleController {
 
   ArticleController({@required this.articleService, @required this.client});
 
-  List<Article> articles = List<Article>();
+  List<Article> articles = <Article>[];
 
   // Load articles using a controller service
   Future<void> loadData() async {
