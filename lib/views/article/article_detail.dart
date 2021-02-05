@@ -29,6 +29,7 @@ class ArticleDetails extends StatelessWidget {
       return Container(
         padding: const EdgeInsets.all(10.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               article.title,
