@@ -17,7 +17,7 @@ class ArticleDetails extends StatelessWidget {
     // Using Scaffold because it is stand alone page
     return Scaffold(
       appBar: AppBar(
-        title: Text(article.title),
+        title: Text(GlobalMessages.ArticleDetailPageTitle),
       ),
       body: _getBodyDisplay(context),
     );
