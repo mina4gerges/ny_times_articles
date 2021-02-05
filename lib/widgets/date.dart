@@ -6,14 +6,19 @@ import 'package:flutter/material.dart';
 class Date extends StatelessWidget {
   final String date;
   final TextStyle textStyle;
+  final Color iconColor;
 
-  Date({Key key, @required this.date, this.textStyle}) : super(key: key);
+  Date({Key key, @required this.date, this.textStyle, this.iconColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Icon(Icons.date_range),
+        Icon(
+          Icons.date_range,
+          color: iconColor,
+        ),
         Text(
           date,
           style: textStyle,

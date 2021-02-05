@@ -92,6 +92,7 @@ class ArticleItem extends StatelessWidget {
                     article.creationDate != null
                         ? Date(
                             date: article.creationDate,
+                            iconColor: const Color(0xFF848484),
                             textStyle: TextStyle(
                               color: const Color(0xFF848484),
                             ),
