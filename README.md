@@ -10,15 +10,16 @@ Mobile application written in flutter to get the most popular articles.
 6. [How to generate coverage reports](#coverageReports)
 7. [Architecture](#architecture)
 8. [Development environment](#developementEnvirement)
-10.[SonarQube report](#sonarQubeReport)
-9. [ScreenShots](#screenShots)
+9. [SonarQube report](#sonarQubeReport)
+10. [Extra. Building web app](#extraBuildingWebApp)
+11. [ScreenShots](#screenShots)
 
 - <h2 name="prerequisites">Prerequisites</h2>
 
     - **flutter SDK** installed (https://flutter.dev). To check if **flutter** is installed, run this command: **flutter
       --version**
 
-    - At least one editor installed ex: **Android Studio** (https://developer.android.com/studio), **IntelliJ** 
+    - At least one editor installed ex: **Android Studio** (https://developer.android.com/studio), **IntelliJ**
       (https://www.jetbrains.com/idea/) or **VS code** (https://code.visualstudio.com)
 
     - At least one device connected, **emulator**, **simulator** or a **physical device**
@@ -89,9 +90,11 @@ Mobile application written in flutter to get the most popular articles.
 
     - Dart: 2.10.3
 
-    - macOS Big Sur (version 11.1)
+    - OS: macOS Big Sur (version 11.1)
 
-    - Iphone 11 (Simulator ios 14.2) And Pixel 4 XL API 30 (Emulator)
+    - Devices: Iphone 11 (Simulator ios 14.2) and Pixel 4 XL API 30 (Emulator)
+
+    - Editors: IntelliJ v2020.3.2 and Android Studio v4.1.2
 
 - <h2 name="sonarQubeReport">SonarQube report</h2>
 
@@ -108,7 +111,7 @@ Mobile application written in flutter to get the most popular articles.
         - Download the plugin for analyzing dart language and flutter because sonarqube doesn't own
           it (https://github.com/insideapp-oss/sonar-flutter/releases/download/0.2.1/sonar-flutter-plugin-0.2.1.jar)
 
-        - After installing this plugin, added it to where you installed **SonarQube** in a specific folder: 
+        - After installing this plugin, added it to where you installed **SonarQube** in a specific folder:
           **YOUR_PATH/sonarqube/extensions/plugins/**
 
         - Run **SonarQube** by running this command: **YOUR_PATH/sonarqube/bin/[OS]/sonar.sh console**. 'OS' refers to
@@ -132,21 +135,59 @@ Mobile application written in flutter to get the most popular articles.
 
         - Run the analysis and publish to the **SonarQube** server **sonar-scanner** (Be sure you added **SonarScanner**
           to your path)
-          
+
         - Open the web browser: **localhost:9000**
-    
+
         - Login using you credentials (**admin** is the default value for the login and password)
-    
+
         - Congrats 🎉, now you can see the reports
 
+- <h2 name="extraBuildingWebApp">Extra. Building web app</h2>
+
+    - Set UP
+
+        - Open a command line/terminal (root folder)
+
+        - **flutter channel beta**
+
+        - **flutter upgrade**
+
+        - **flutter config --enable-web**
+
+        - Restart your IDE
+
+    - Run
+
+        - Open a command line/terminal (root folder)
+          
+        - **flutter run -d chrome**
+    
+    - Build
+
+        - Open a command line/terminal (root folder)
+          
+        - Add web support: **flutter create .**
+    
+        - Build command: **flutter build web**
+    
+    - An online version has been deployed, you can check: https://popular-articles-98391.web.app
+
+    - N.B: Please note that when changing to **beta** version, we are **replacing** our current version of flutter.
+      Returning to the stable channel (or any other) requires calling flutter channel <channel> explicitly.
+
+    - For more info: https://flutter.dev/docs/get-started/web
 
 - <h2 name="screenShots">ScreenShots</h2>
 
   IOS articles | IOS article detail
   :-----------:|:-----------------: 
-  ![Introduction Screen](screenshots/ios-home.png?raw=true) | ![Introduction Screen](screenshots/ios-detail.png?raw=true)
+  ![Introduction Screen](screenshots/ios-articles.png?raw=true) | ![Introduction Screen](screenshots/ios-article-detail.png?raw=true)
 
   Android articles | Android article detail
   :---------------:|:----------------------: 
-  ![Introduction Screen](screenshots/android-home.png?raw=true) | ![Introduction Screen](screenshots/android-detail.png?raw=true)
+  ![Introduction Screen](screenshots/android-articles.png?raw=true) | ![Introduction Screen](screenshots/android-article-detail.png?raw=true)
+
+  Web articles | Web article detail
+  :---------------:|:----------------------: 
+  ![Introduction Screen](screenshots/web-articles.png?raw=true) | ![Introduction Screen](screenshots/web-article-detail.png?raw=true)
 

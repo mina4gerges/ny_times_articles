@@ -1,6 +1,6 @@
 /// All data and information to use ny times API
 abstract class UrlConstants {
-  static const String baseUrl = 'http://api.nytimes.com';
+  static const String baseUrl = 'https://api.nytimes.com';
 
   // PLease insert your api key here
   // To get an api get please visit https://developer.nytimes.com/get-started
