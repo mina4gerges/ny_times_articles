@@ -8,12 +8,12 @@ Mobile application written in flutter to get the most popular articles.
 4. [How to test the app](#testApp)
 5. [How to generate coverage reports](#coverageReports)
 6. [Architecture](#architecture)
-7. [ScreenShots](#screenShots)
-8. [Development environment](#developementEnvirement)
+7. [Development environment](#developementEnvirement)
+8. [ScreenShots](#screenShots)
 
 - <h2 name="prerequisites">Prerequisites</h2>
 
-    - **Flutter SDK** installed (https://flutter.dev)
+    - **flutter SDK** installed (https://flutter.dev). To check if **flutter** is installed, run this command: **flutter --version**
 
     - At least one editor installed ex: **Android Studio** (https://developer.android.com/studio), **
       Intellij** (https://www.jetbrains.com/idea/) or **VS code** (https://code.visualstudio.com)
@@ -69,6 +69,12 @@ Mobile application written in flutter to get the most popular articles.
     - The views contain: articles list view, article details view and article item view
 
     - The services contain: function to load articles for the API + handling the request error
+  
+- <h2 name="developementEnvirement">Development environment</h2>
+
+    - Flutter: 1.22.3
+
+    - Dart: 2.10.3
 
 - <h2 name="screenShots">ScreenShots</h2>
 
@@ -80,8 +86,3 @@ Mobile application written in flutter to get the most popular articles.
     :---------------:|:----------------------: 
   ![Introduction Screen](screenshots/android-home.png?raw=true) | ![Introduction Screen](screenshots/android-detail.png?raw=true)
 
-- <h2 name="developementEnvirement">Development environment</h2>
-
-    - Flutter: 1.22.3
-
-    - Dart: 2.10.3
