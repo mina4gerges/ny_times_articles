@@ -1,6 +1,6 @@
 {
-    "name": "ny_times_articles",
-    "short_name": "ny_times_articles",
+    "name": "Popular articles",
+    "short_name": "Popular articles",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
