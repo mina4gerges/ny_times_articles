@@ -41,13 +41,38 @@ class ArticleItem extends StatelessWidget {
   }
 
   // Left side display of the article
-  Widget _getLeftColumnDisplay(String imagePath) => Container(
-          child: CircleAvatar(
-        radius: 30.0,
-        backgroundImage: imagePath != null
-            ? NetworkImage(imagePath)
-            : AssetImage('assets/images/ny_icon.png'),
-      ));
+  Widget _getLeftColumnDisplay(String imagePath) {
+    final width = 70.0;
+    final height = 70.0;
+    final defaultImage = AssetImage('assets/images/ny_icon.png');
+
+    return Container(
+      child: ClipOval(
+        // If imagePath is found, display the provided path, else display a default image.
+        child: imagePath != null
+            ? Image.network(
+                imagePath,
+                width: width,
+                height: height,
+                fit: BoxFit.cover,
+                // If error while fetching the image, display a default image
+                errorBuilder: (BuildContext context, Object exception,
+                    StackTrace stackTrace) {
+                  return Image(
+                    width: width,
+                    height: height,
+                    image: defaultImage,
+                  );
+                },
+              )
+            : Image(
+                width: width,
+                height: height,
+                image: defaultImage,
+              ),
+      ),
+    );
+  }
 
   // Middle side display of the article
   Widget _getMiddleColumnDisplay(Article article) => Expanded(
