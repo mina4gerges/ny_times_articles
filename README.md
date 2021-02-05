@@ -10,11 +10,13 @@ Mobile application written in flutter to get the most popular articles.
 6. [How to generate coverage reports](#coverageReports)
 7. [Architecture](#architecture)
 8. [Development environment](#developementEnvirement)
+   10.[SonarQube report](#sonarQubeReport)
 9. [ScreenShots](#screenShots)
 
 - <h2 name="prerequisites">Prerequisites</h2>
 
-    - **flutter SDK** installed (https://flutter.dev). To check if **flutter** is installed, run this command: **flutter --version**
+    - **flutter SDK** installed (https://flutter.dev). To check if **flutter** is installed, run this command: **flutter
+      --version**
 
     - At least one editor installed ex: **Android Studio** (https://developer.android.com/studio), **
       Intellij** (https://www.jetbrains.com/idea/) or **VS code** (https://code.visualstudio.com)
@@ -28,7 +30,7 @@ Mobile application written in flutter to get the most popular articles.
 
 - <h2 name="installation">Installation</h2>
 
-    - Open a command line/terminal
+    - Open a command line/terminal (root folder)
 
     - git clone https://github.com/mina4gerges/popular_articles.git
 
@@ -47,25 +49,27 @@ Mobile application written in flutter to get the most popular articles.
 
 - <h2 name="runApp">How to run the app</h2>
 
-    - In the root of the app, open a command line/terminal and hit **flutter run**
+    - In the root of the folder, open a command line/terminal and hit **flutter run**
 
 - <h2 name="testApp">How to test the app</h2>
 
-    - In the root of the app, open a command line/terminal and hit **flutter test**
+    - In the root of the folder, open a command line/terminal and hit **flutter test**
 
 - <h2 name="buildApk">How to build an apk</h2>
 
-  - In the root of the app, open a command line/terminal and hit **flutter build apk --split-per-abi**
-  
-  - This command results in three APK files in **popular_articles/build/app/outputs/apk/release/**
-  
-  - More info: https://flutter.dev/docs/deployment/android
+    - In the root of the folder, open a command line/terminal and hit **flutter build apk --split-per-abi**
+
+    - This command results in three APK files in **popular_articles/build/app/outputs/apk/release/**
+
+    - More info: https://flutter.dev/docs/deployment/android
 
 - <h2 name="coverageReports">How to generate coverage reports</h2>
 
-    - In the root of the app, open a command line/terminal and hit **flutter test --coverage**
+    - In the root of the folder, open a command line/terminal and hit **flutter test --coverage**
 
-    - A folder hase been created by **flutter**, container the coverage reports.
+    - A folder called **coverage**, created by **flutter**, contains the coverage report.
+
+    - To generate reports please refer to [SonarQube report](#sonarQubeReport)
 
 - <h2 name="architecture">Architecture</h2>
 
@@ -78,20 +82,65 @@ Mobile application written in flutter to get the most popular articles.
     - The views contain: articles list view, article details view and article item view
 
     - The services contain: function to load articles for the API + handling the request error
-  
+
 - <h2 name="developementEnvirement">Development environment</h2>
 
     - Flutter: 1.22.3
 
     - Dart: 2.10.3
 
+    - macOS Big Sur (version 11.1)
+
+    - Iphone 11 (Simulator ios 14.2) And Pixel 4 XL API 30 (emulator)
+
+- <h2 name="sonarQubeReport">SonarQube report</h2>
+
+    - Prerequisites:
+
+        - Java JDK version 8 (https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) OR
+          11 (https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) **installed**
+
+        - SonarQube installed **from the zip file**. For me I used **7.9.5** version
+          (https://docs.sonarqube.org/latest/setup/get-started-2-minutes/)
+
+        - SonarScanner installed (https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/)
+
+        - Download the plugin for analyzing dart language and flutter because sonarqube doesn't own
+          it (https://github.com/insideapp-oss/sonar-flutter/releases/download/0.2.1/sonar-flutter-plugin-0.2.1.jar)
+
+        - After installing this plugin, added it to where you installed **SonarQube** in a specific folder: **
+          YOUR_PATH/sonarqube/extensions/plugins/**
+
+        - Run **SonarQube** by running this command: **YOUR_PATH/sonarqube/bin/[OS]/sonar.sh console**. 'OS' refers to
+          your operating system
+
+        - Please note, a configuration file is already added in the root project called **sonar-project.properties**
+          with default **login and password**: **admin** (No action required. Only if you want to change **login and
+          password** values based on **SonarQube** credentials)
+
+        - Now, **SonarQube** is configured and running to run analysis and generate reports
+
+    - How to run reports ?
+
+        - Open a command line/terminal (root folder)
+
+        - Run tests **flutter test --machine > tests.output**
+
+        - Compute coverage **flutter pub get**
+
+        - Download all dependencies **flutter test --coverage**
+
+        - Run the analysis and publish to the **SonarQube** server **sonar-scanner** (Be sure you added **SonarScanner**
+          to your path)
+
+
 - <h2 name="screenShots">ScreenShots</h2>
 
   IOS articles | IOS article detail
-    :-----------:|:-----------------: 
+                  :-----------:|:-----------------: 
   ![Introduction Screen](screenshots/ios-home.png?raw=true) | ![Introduction Screen](screenshots/ios-detail.png?raw=true)
 
   Android articles | Android article detail
-    :---------------:|:----------------------: 
+                  :---------------:|:----------------------: 
   ![Introduction Screen](screenshots/android-home.png?raw=true) | ![Introduction Screen](screenshots/android-detail.png?raw=true)
 
