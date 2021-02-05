@@ -1,16 +1,48 @@
-# ny_times_articles
+# Popular articles
 
 Mobile application to get the most popular articles.
 
-## Getting Started
+1. [Installation](#installation)
+2. [How to run the app](#runApp)
+3. [How to test the app](#testApp)
+4. [How to generate coverage reports](#coverageReports)
+5. [Development environment](#developementEnvirement)
 
-This project is a starting point for a Flutter application.
+- <h2 name="installation">Installation</h2>
 
-A few resources to get you started if this is your first Flutter project:
+    - open a command line/terminal
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+    - git clone https://github.com/mina4gerges/popular_articles.git
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    - Go to the directory **popular_articles** and hit **flutter pub get** to install all dependencies
+
+    - Go to https://developer.nytimes.com/get-started
+
+    - Sign in/up and create a new application (click on user name-drop down to create a new app) to get an API key, and
+      enable **Most Popular API** in APIs section
+
+    - Set the API key in **lib/global/api.dart**
+
+    - Hit **flutter run** to run the application
+
+    - Congrats 🎉 The app is running now
+
+- <h2 name="runApp">How to run the app</h2>
+
+    - In the root of the app, open a command line/terminal and hit **flutter run**
+
+- <h2 name="testApp">How to test the app</h2>
+
+    - In the root of the app, open a command line/terminal and hit **flutter test**
+      
+- <h2 name="coverageReports">How to generate coverage reports</h2>
+
+  - In the root of the app, open a command line/terminal and hit **flutter test --coverage**
+    
+  - A folder hase been created by **flutter**, container the coverage reports.
+
+- <h2 name="developementEnvirement">Development environment</h2>
+
+    - Flutter: 1.22.3
+
+    - Dart: 2.10.3
