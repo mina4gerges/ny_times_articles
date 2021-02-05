@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 
 import 'package:ny_times_articles/global/api.dart';
 import 'package:ny_times_articles/global/messages.dart';
@@ -8,9 +8,9 @@ import 'package:ny_times_articles/models/article_model.dart';
 
 /// Fetch data using a service and handling errors
 class ArticleService {
-  Future<List<Article>> getMostPopularArticles() async {
+  Future<List<Article>> getMostPopularArticles(Client client) async {
     try {
-      var response = await http.get(UrlConstants.mostPopularArticles);
+      var response = await client.get(UrlConstants.mostPopularArticles);
 
       Map<String, dynamic> responseBody = jsonDecode(response.body);
 

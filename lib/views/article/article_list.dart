@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:ny_times_articles/widgets/error.dart';
 import 'package:ny_times_articles/global/messages.dart';
 import 'package:ny_times_articles/widgets/loading.dart';
@@ -17,7 +18,7 @@ class ArticleList extends StatefulWidget {
 
 class _ArticleListState extends State<ArticleList> {
   ArticleController articleController =
-      ArticleController(articleService: ArticleService());
+      ArticleController(articleService: ArticleService(), client: Client());
 
   bool error = false;
   bool isLoading = false;
