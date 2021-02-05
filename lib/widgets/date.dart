@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// Widget to display the date value and date icon.
+/// Using one required param which is the date value and optional one to set
+/// date style
 class Date extends StatelessWidget {
   final String date;
   final TextStyle textStyle;

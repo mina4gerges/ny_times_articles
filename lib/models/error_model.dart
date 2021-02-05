@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:ny_times_articles/global/messages.dart';
 
+/// Create an ErrorMessage modal
 class ErrorMessage {
   final String title;
   final String description;

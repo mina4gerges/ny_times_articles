@@ -6,6 +6,7 @@ import 'package:ny_times_articles/models/error_model.dart';
 import 'package:ny_times_articles/widgets/white_space.dart';
 import 'package:ny_times_articles/models/article_model.dart';
 
+/// ArticleDetails view to display article detail
 class ArticleDetails extends StatelessWidget {
   final Article article;
 
@@ -13,6 +14,7 @@ class ArticleDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Using Scaffold because it is stand alone page
     return Scaffold(
       appBar: AppBar(
         title: Text(article.title),
@@ -21,6 +23,7 @@ class ArticleDetails extends StatelessWidget {
     );
   }
 
+  // Display the body of an article and handling error if any
   Widget _getBodyDisplay(BuildContext context) {
     try {
       return Container(

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 
+/// Create an Article modal to manipulate easily with the loaded data
 class Article {
   int id;
   String title;

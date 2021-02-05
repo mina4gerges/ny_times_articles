@@ -1,3 +1,4 @@
+/// All data and information to use ny times API
 abstract class UrlConstants {
   static const String baseUrl = 'http://api.nytimes.com';
 

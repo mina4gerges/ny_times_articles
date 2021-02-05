@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:ny_times_articles/models/error_model.dart';
 import 'package:ny_times_articles/widgets/white_space.dart';
 
+/// Widget to display error message, with a description and an action
+/// Using a required param which is ErrorMessage (contains the error message,
+/// error description and the action)
 class Error extends StatelessWidget {
   final ErrorMessage errorMessage;
 
@@ -21,7 +24,7 @@ class Error extends StatelessWidget {
 
           WhiteSpace(),
 
-          // Display error description if exist e.x invalid client id
+          // Display error description if exist ex: invalid client id
           errorMessage.description != null
               ? Text(
                   errorMessage.description,
@@ -32,7 +35,7 @@ class Error extends StatelessWidget {
 
           WhiteSpace(space: 3.0),
 
-          // Display an action if exist i.e: Go back button
+          // Display an action if exist ex: Go back button
           errorMessage.action != null
               ? ElevatedButton(
                   child: Text(errorMessage.action.title),

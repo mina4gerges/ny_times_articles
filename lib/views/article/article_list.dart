@@ -8,6 +8,8 @@ import 'package:ny_times_articles/services/article_service.dart';
 import 'package:ny_times_articles/views/article/article_item.dart';
 import 'package:ny_times_articles/controllers/article_controller.dart';
 
+/// ArticleList view to display all articles (using StatefulWidget because we
+/// are changing stats e.x: set articles data...)
 class ArticleList extends StatefulWidget {
   @override
   _ArticleListState createState() => _ArticleListState();
@@ -28,6 +30,7 @@ class _ArticleListState extends State<ArticleList> {
     _getMostPopularArticles();
   }
 
+  // Fetch data using a controller and handle errors and loading status
   void _getMostPopularArticles() async {
     try {
       setState(() {
@@ -54,10 +57,12 @@ class _ArticleListState extends State<ArticleList> {
 
   @override
   Widget build(BuildContext context) {
+    // Display a loading message while waiting for data to be fetched
     if (isLoading) {
       return Loading();
     }
 
+    // Display a error message if any
     if (error)
       return Error(
         errorMessage: ErrorMessage(
@@ -69,6 +74,7 @@ class _ArticleListState extends State<ArticleList> {
         ),
       );
 
+    // If no articles found, display an error message
     if (articles.length == 0)
       return Error(
         errorMessage: ErrorMessage(
@@ -80,6 +86,7 @@ class _ArticleListState extends State<ArticleList> {
         ),
       );
 
+    // Display all fetched data in a list
     return ListView.separated(
       itemCount: articles.length,
       itemBuilder: (BuildContext context, int index) {

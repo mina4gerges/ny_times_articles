@@ -1,3 +1,4 @@
+/// Set all global messages in one single class
 abstract class GlobalMessages {
   static const String GoBack = 'Go back';
   static const String Refresh = 'Refresh';

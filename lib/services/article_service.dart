@@ -6,6 +6,7 @@ import 'package:ny_times_articles/global/api.dart';
 import 'package:ny_times_articles/global/messages.dart';
 import 'package:ny_times_articles/models/article_model.dart';
 
+/// Fetch data using a service and handling errors
 class ArticleService {
   Future<List<Article>> getMostPopularArticles() async {
     try {

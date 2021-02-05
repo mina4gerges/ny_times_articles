@@ -5,6 +5,7 @@ import 'package:ny_times_articles/models/article_model.dart';
 
 import 'article_detail.dart';
 
+// ArticleItem view to display each article in the list
 class ArticleItem extends StatelessWidget {
   final Article article;
 
@@ -12,6 +13,7 @@ class ArticleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Main container
     return Container(
       height: 115,
       padding: EdgeInsets.all(5.0),
