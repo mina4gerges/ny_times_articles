@@ -40,6 +40,14 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
+# firebase config
 .firebaserc
 .firebase
 firebase.json
+
+#Sonar report
+.scannerwork
+
+#Coverage
+/coverage/
+tests.output
