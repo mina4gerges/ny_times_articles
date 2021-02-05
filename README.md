@@ -6,7 +6,8 @@ Mobile application to get the most popular articles.
 2. [How to run the app](#runApp)
 3. [How to test the app](#testApp)
 4. [How to generate coverage reports](#coverageReports)
-5. [Development environment](#developementEnvirement)
+5. [ScreenShots](#screenShots)
+6. [Development environment](#developementEnvirement)
 
 - <h2 name="installation">Installation</h2>
 
@@ -40,6 +41,16 @@ Mobile application to get the most popular articles.
   - In the root of the app, open a command line/terminal and hit **flutter test --coverage**
     
   - A folder hase been created by **flutter**, container the coverage reports.
+
+- <h2 name="screenShots">ScreenShots</h2>
+
+  IOS articles | IOS article detail 
+      :--------------------------------------------:|:-------------------------------: 
+  ![Introduction Screen](screenshots/IOS-home.png?raw=true) | ![Introduction Screen](screenshots/IOS-detail.png?raw=true)
+
+  Android articles | Android article detail
+        :--------------------------------------------:|:-------------------------------: 
+  ![Introduction Screen](screenshots/android-home.png?raw=true) | ![Introduction Screen](screenshots/android-detail.png?raw=true)
 
 - <h2 name="developementEnvirement">Development environment</h2>
 
