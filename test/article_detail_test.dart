@@ -48,7 +48,7 @@ void main() {
       // Build our app and trigger a frame.
       await tester.pumpWidget(createArticleDetailScreen1);
 
-      expect(find.text(article1.title), findsNWidgets(2));
+      expect(find.text(article1.title), findsOneWidget);
 
       expect(find.text(article1.description), findsOneWidget);
 
