@@ -7,6 +7,7 @@ import 'package:ny_times_articles/controllers/article_controller.dart';
 
 class MockArticleService extends Mock implements ArticleService {}
 
+/// Unit test to test ArticleController
 void main() {
   Client client;
   ArticleController articleController;

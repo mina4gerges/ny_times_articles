@@ -4,6 +4,7 @@ import 'package:ny_times_articles/widgets/error.dart';
 import 'package:ny_times_articles/global/messages.dart';
 import 'package:ny_times_articles/models/error_model.dart';
 
+/// Widget test to test Error widget display
 void main() {
   Widget createErrorScreen1;
   Widget createErrorScreen2;

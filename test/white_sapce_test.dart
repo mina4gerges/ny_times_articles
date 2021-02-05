@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ny_times_articles/widgets/white_space.dart';
 
+/// Widget test to test WhiteSpace widget display
 void main() {
   Widget createDateScreen;
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ny_times_articles/widgets/date.dart';
 
+/// Widget test to test Date widget display
 void main() {
   Widget createDateScreen;
 

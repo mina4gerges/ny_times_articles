@@ -8,6 +8,7 @@ import 'package:ny_times_articles/services/article_service.dart';
 
 class MockClient extends Mock implements Client {}
 
+/// Unit test to test ArticleService
 void main() {
   MockClient client;
   ArticleService articleService;

@@ -5,6 +5,7 @@ import 'package:ny_times_articles/global/messages.dart';
 import 'package:ny_times_articles/models/article_model.dart';
 import 'package:ny_times_articles/views/article/article_detail.dart';
 
+/// Widget test to test ArticleDetail view display
 void main() {
   Article article1;
   Article article2;

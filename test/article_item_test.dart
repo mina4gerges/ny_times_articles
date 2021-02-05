@@ -4,6 +4,7 @@ import 'package:ny_times_articles/models/article_model.dart';
 import 'package:ny_times_articles/views/article/article_item.dart';
 import 'package:ny_times_articles/widgets/date.dart';
 
+/// Widget test to test ArticleItem view display
 void main() {
   Article article1;
 
