@@ -28,18 +28,6 @@ class ArticleItem extends StatelessWidget {
     );
   }
 
-  // Handle click
-  void _onArticleClick(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ArticleDetails(
-          article: article,
-        ),
-      ),
-    );
-  }
-
   // Left side display of the article
   Widget _getLeftColumnDisplay(String imagePath) {
     final width = 70.0;
@@ -139,4 +127,16 @@ class ArticleItem extends StatelessWidget {
           onPressed: () => _onArticleClick(context),
         ),
       );
+
+  // Handle click
+  void _onArticleClick(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ArticleDetail(
+          article: article,
+        ),
+      ),
+    );
+  }
 }

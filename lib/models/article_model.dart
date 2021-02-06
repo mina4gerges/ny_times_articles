@@ -24,11 +24,10 @@ class Article {
 
   Article.fromJson(Map<String, dynamic> article) {
     // Filter media to get only images
-    List<Map<String, dynamic>> tempImages = List<Map<String, dynamic>>.from(
-            article['media']
-                ?.where((val) => val['type'] == 'image')
-                ?.toList()) ??
-        [];
+    List<Map<String, dynamic>> tempImages = article['media'] != null
+        ? List<Map<String, dynamic>>.from(
+            article['media']?.where((val) => val['type'] == 'image')?.toList())
+        : [];
 
     // Get the first element then 'media-metadata' (contains array of image obj )
     List<Map<String, dynamic>> finalImages = tempImages.length > 0

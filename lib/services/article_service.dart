@@ -23,12 +23,12 @@ class ArticleService {
 
       // Error ex: api not valid
       else
-        throw responseBody['fault']['faultstring'];
+        throw Exception(responseBody['fault']['faultstring']);
     } on SocketException {
-      throw GlobalMessages.NoInternetConnection;
-    } on Error catch (e) {
-      print("ERROR: $e");
-      throw GlobalMessages.UnknownError;
+      throw Exception(GlobalMessages.NoInternetConnection);
+    } catch (e) {
+      print("CATCH: $e");
+      throw Exception(e?.message ?? GlobalMessages.UnknownError);
     }
   }
 }

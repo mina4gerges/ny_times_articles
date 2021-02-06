@@ -23,7 +23,7 @@ class _ArticleListState extends State<ArticleList> {
   bool error = false;
   bool isLoading = false;
   String errorDescription = '';
-  List<Article> articles = new List<Article>();
+  List<Article> articles = <Article>[];
 
   @override
   void initState() {
@@ -51,7 +51,7 @@ class _ArticleListState extends State<ArticleList> {
         error = true;
         articles = [];
         isLoading = false;
-        errorDescription = e;
+        errorDescription = e?.message ?? '';
       });
     }
   }
