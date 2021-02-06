@@ -31,13 +31,13 @@ void main() {
     );
 
     createArticleDetailScreen1 = MaterialApp(
-      home: ArticleDetails(
+      home: ArticleDetail(
         article: article1,
       ),
     );
 
     createArticleDetailScreen2 = MaterialApp(
-      home: ArticleDetails(
+      home: ArticleDetail(
         article: article2,
       ),
     );
@@ -56,15 +56,29 @@ void main() {
 
       expect(find.text(article1.creationDate), findsOneWidget);
 
+      expect(find.text(GlobalMessages.Error), findsNothing);
+
+      expect(find.text(GlobalMessages.GoBack), findsNothing);
+
       expect(find.byType(Text), findsNWidgets(5));
 
       expect(find.byType(Date), findsOneWidget);
+
+      expect(find.byType(ElevatedButton), findsNothing);
     });
 
     testWidgets('Test article details shows up with an error',
         (WidgetTester tester) async {
       // Build our app and trigger a frame.
       await tester.pumpWidget(createArticleDetailScreen2);
+
+      expect(find.text(article1.title), findsNothing);
+
+      expect(find.text(article1.description), findsNothing);
+
+      expect(find.text(article1.author), findsNothing);
+
+      expect(find.text(article1.creationDate), findsNothing);
 
       expect(find.text(GlobalMessages.Error), findsOneWidget);
 
@@ -73,6 +87,8 @@ void main() {
       expect(find.byType(Text), findsNWidgets(4));
 
       expect(find.byType(ElevatedButton), findsOneWidget);
+
+      tester.tap(find.byType(ElevatedButton));
     });
   });
 }

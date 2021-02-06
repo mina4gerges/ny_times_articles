@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ny_times_articles/widgets/date.dart';
 import 'package:ny_times_articles/models/article_model.dart';
 import 'package:ny_times_articles/views/article/article_item.dart';
-import 'package:ny_times_articles/widgets/date.dart';
 
 /// Widget test to test ArticleItem view display
 void main() {
@@ -74,6 +74,10 @@ void main() {
       expect(find.byType(Icon), findsNWidgets(2));
 
       expect(find.byType(Date), findsOneWidget);
+
+      expect(find.byTooltip('More'), findsOneWidget);
+
+      tester.tap(find.byType(IconButton));
     });
 
     testWidgets('Test article item (some data) shows up',
@@ -96,6 +100,10 @@ void main() {
       expect(find.byType(Icon), findsOneWidget);
 
       expect(find.byType(Date), findsNothing);
+
+      expect(find.byTooltip('More'), findsOneWidget);
+
+      tester.tap(find.byType(IconButton));
     });
   });
 }

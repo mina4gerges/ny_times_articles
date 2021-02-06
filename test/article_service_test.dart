@@ -30,9 +30,29 @@ void main() {
           isA<List<Article>>());
     });
 
+    test('Fetch articles from API with status 200 and without media', () async {
+      String json200 =
+          '{"results": [{"id": 1, "title": "title", "byline": "author", "section": "section", "abstract": "description","published_date": "creationDate"}]}';
+
+      when(client.get(UrlConstants.mostPopularArticles))
+          .thenAnswer((_) async => http.Response(json200, 200));
+
+      expect(await articleService.getMostPopularArticles(client),
+          isA<List<Article>>());
+    });
+
     test('Fetch articles from API with status 500', () async {
       when(client.get(UrlConstants.mostPopularArticles))
           .thenAnswer((_) async => http.Response('Internal Server Error', 500));
+
+      expect(articleService.getMostPopularArticles(client), throwsException);
+    });
+
+    test('Fetch articles from API with status 401', () async {
+      String json401 = '{"fault": { "faultstring": "Unauthorized" }}';
+
+      when(client.get(UrlConstants.mostPopularArticles))
+          .thenAnswer((_) async => http.Response(json401, 401));
 
       expect(articleService.getMostPopularArticles(client), throwsException);
     });
