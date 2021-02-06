@@ -142,6 +142,10 @@ Mobile application written in flutter to get the most popular articles.
 
         - Congrats 🎉, now you can see the reports
 
+          SonarQube Report|
+          :-----------:|
+          ![sonarQube-report](screenshots/sonarQube-report.png?raw=true)|
+
 - <h2 name="extraBuildingWebApp">Extra. Building web app</h2>
 
     - Set UP
@@ -181,13 +185,13 @@ Mobile application written in flutter to get the most popular articles.
 
   IOS articles | IOS article detail
   :-----------:|:-----------------: 
-  ![Introduction Screen](screenshots/ios-articles.png?raw=true) | ![Introduction Screen](screenshots/ios-article-detail.png?raw=true)
+  ![ios-articles](screenshots/ios-articles.png?raw=true) | ![ios-article-detail](screenshots/ios-article-detail.png?raw=true)
 
   Android articles | Android article detail
   :---------------:|:----------------------: 
-  ![Introduction Screen](screenshots/android-articles.png?raw=true) | ![Introduction Screen](screenshots/android-article-detail.png?raw=true)
+  ![android-articles.png](screenshots/android-articles.png?raw=true) | ![android-article-detail](screenshots/android-article-detail.png?raw=true)
 
   Web articles | Web article detail
   :---------------:|:----------------------: 
-  ![Introduction Screen](screenshots/web-articles.png?raw=true) | ![Introduction Screen](screenshots/web-article-detail.png?raw=true)
+  ![web-articles](screenshots/web-articles.png?raw=true) | ![web-article-detail](screenshots/web-article-detail.png?raw=true)
 
