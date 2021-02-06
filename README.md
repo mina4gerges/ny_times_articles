@@ -31,7 +31,7 @@ Mobile application written in flutter to get the most popular articles.
 
 - <h2 name="installation">Installation</h2>
 
-    - Open a command line/terminal (root folder)
+    - Open a command line/terminal
 
     - git clone https://github.com/mina4gerges/popular_articles.git
 
@@ -101,7 +101,7 @@ Mobile application written in flutter to get the most popular articles.
     - Prerequisites:
 
         - Java JDK version 8 (https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) OR
-          11 (https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) **installed**
+          11 (https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) **installed**. To check if it is already installed, run **java --version**
 
         - SonarQube installed **from the zip file**. For me I used **7.9.5** version
           (https://docs.sonarqube.org/latest/setup/get-started-2-minutes/)
@@ -115,7 +115,7 @@ Mobile application written in flutter to get the most popular articles.
           **YOUR_PATH/sonarqube/extensions/plugins/**
 
         - Run **SonarQube** by running this command: **YOUR_PATH/sonarqube/bin/[OS]/sonar.sh console**. 'OS' refers to
-          your operating system
+          your operating system (windows, linux...)
 
         - Please note, a configuration file is already added in the root project called **sonar-project.properties**
           with default **login and password**: **admin** (No action required. Only if you want to change **login and
@@ -129,9 +129,9 @@ Mobile application written in flutter to get the most popular articles.
 
         - Run tests **flutter test --machine > tests.output**
 
-        - Compute coverage **flutter pub get**
+        - Download all dependencies **flutter pub get**
 
-        - Download all dependencies **flutter test --coverage**
+        - Compute coverage **flutter test --coverage**
 
         - Run the analysis and publish to the **SonarQube** server **sonar-scanner** (Be sure you added **SonarScanner**
           to your path)
