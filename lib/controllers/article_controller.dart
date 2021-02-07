@@ -1,14 +1,15 @@
 import 'package:http/http.dart';
 import 'package:flutter/foundation.dart';
-import 'package:ny_times_articles/models/article_model.dart';
-import 'package:ny_times_articles/services/article_service.dart';
+
+import '../models/article_model.dart';
+import '../services/article_service.dart';
 
 /// Create a controller to load and get articles
 class ArticleController {
+  ArticleController({@required this.client, @required this.articleService});
+
   final Client client;
   final ArticleService articleService;
-
-  ArticleController({@required this.articleService, @required this.client});
 
   List<Article> articles = <Article>[];
 

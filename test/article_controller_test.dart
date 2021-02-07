@@ -1,6 +1,7 @@
 import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:ny_times_articles/models/article_model.dart';
 import 'package:ny_times_articles/services/article_service.dart';
 import 'package:ny_times_articles/controllers/article_controller.dart';
@@ -38,12 +39,12 @@ void main() {
 
     test("Article controllers with empty values", () async {
       when(mockArticleService.getMostPopularArticles(client)).thenAnswer(
-        (_) => Future.value([]),
+        (_) => Future.value(<Article>[]),
       );
 
       await articleController.loadData();
 
-      expect(articleController.articles, []);
+      expect(articleController.articles, <Article>[]);
     });
   });
 }

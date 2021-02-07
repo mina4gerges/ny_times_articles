@@ -2,19 +2,9 @@ import 'package:flutter/foundation.dart';
 
 /// Create an Article modal to manipulate easily with the loaded data
 class Article {
-  int id;
-  String title;
-  String author;
-  String section;
-  String imagePath;
-  String description;
-  String creationDate;
-  List<Map<String, dynamic>> images;
-
   Article({
     @required this.id,
     @required this.title,
-    this.images,
     this.author,
     this.section,
     this.imagePath,
@@ -23,28 +13,44 @@ class Article {
   });
 
   Article.fromJson(Map<String, dynamic> article) {
-    // Filter media to get only images
-    List<Map<String, dynamic>> tempImages = article['media'] != null
-        ? List<Map<String, dynamic>>.from(
-            article['media']?.where((val) => val['type'] == 'image')?.toList())
-        : [];
+    List<Map<String, dynamic>> tempImages;
+    List<Map<String, dynamic>> finalImages;
+    String finalImagePath;
 
-    // Get the first element then 'media-metadata' (contains array of image obj )
-    List<Map<String, dynamic>> finalImages = tempImages.length > 0
-        ? List<Map<String, dynamic>>.from(tempImages[0]['media-metadata'])
-        : [];
+    if (article['media'] != null) {
+      // Filter media to get only images
+      tempImages = List<Map<String, dynamic>>.from(
+        article['media'].where((val) => val['type'] == 'image').toList()
+            as List,
+      );
 
-    // Get the first element (random)
-    String finalImagePath =
-        finalImages.length > 0 ? finalImages[0]['url'] : null;
+      // Get the first element then 'media-metadata'
+      // (contains array of images obj)
+      if (tempImages.isNotEmpty) {
+        finalImages = List<Map<String, dynamic>>.from(
+          tempImages[0]['media-metadata'] as List,
+        );
 
-    id = article['id'];
-    images = finalImages;
-    title = article['title'];
+        // Get the first element (random)
+        finalImagePath =
+            (finalImages.isNotEmpty ? finalImages[0]['url'] : null) as String;
+      }
+    }
+
+    id = article['id'] as int;
+    title = article['title'] as String;
     imagePath = finalImagePath;
-    author = article['byline'];
-    section = article['section'];
-    description = article['abstract'];
-    creationDate = article['published_date'];
+    author = article['byline'] as String;
+    section = article['section'] as String;
+    description = article['abstract'] as String;
+    creationDate = article['published_date'] as String;
   }
+
+  int id;
+  String title;
+  String author;
+  String section;
+  String imagePath;
+  String description;
+  String creationDate;
 }

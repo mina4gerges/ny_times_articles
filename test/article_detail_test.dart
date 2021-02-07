@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:ny_times_articles/widgets/date.dart';
 import 'package:ny_times_articles/global/messages.dart';
 import 'package:ny_times_articles/models/article_model.dart';
-import 'package:ny_times_articles/views/article/article_detail.dart';
+import 'package:ny_times_articles/views/articles/article_detail.dart';
 
 /// Widget test to test ArticleDetail view display
 void main() {
@@ -16,7 +17,6 @@ void main() {
   setUp(() {
     article1 = Article(
       id: 1,
-      images: [],
       title: 'title 1',
       imagePath: null,
       author: 'author 1',
@@ -56,9 +56,9 @@ void main() {
 
       expect(find.text(article1.creationDate), findsOneWidget);
 
-      expect(find.text(GlobalMessages.Error), findsNothing);
+      expect(find.text(GlobalMessages.errorMsg), findsNothing);
 
-      expect(find.text(GlobalMessages.GoBack), findsNothing);
+      expect(find.text(GlobalMessages.goBackMsg), findsNothing);
 
       expect(find.byType(Text), findsNWidgets(5));
 
@@ -80,15 +80,15 @@ void main() {
 
       expect(find.text(article1.creationDate), findsNothing);
 
-      expect(find.text(GlobalMessages.Error), findsOneWidget);
+      expect(find.text(GlobalMessages.errorMsg), findsOneWidget);
 
-      expect(find.text(GlobalMessages.GoBack), findsOneWidget);
+      expect(find.text(GlobalMessages.goBackMsg), findsOneWidget);
 
       expect(find.byType(Text), findsNWidgets(4));
 
       expect(find.byType(ElevatedButton), findsOneWidget);
 
-      tester.tap(find.byType(ElevatedButton));
+      await tester.tap(find.byType(ElevatedButton));
     });
   });
 }

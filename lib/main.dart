@@ -1,89 +1,47 @@
 import 'package:flutter/material.dart';
-import 'views/article/article_list.dart';
+
+import 'views/home_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-const MaterialColor customColor = const MaterialColor(
+const MaterialColor customColor = MaterialColor(
   0xFF78e0c3,
-  const <int, Color>{
-    50: const Color.fromRGBO(120, 224, 195, .1),
-    100: const Color.fromRGBO(120, 224, 195, .2),
-    200: const Color.fromRGBO(120, 224, 195, .3),
-    300: const Color.fromRGBO(120, 224, 195, .4),
-    400: const Color.fromRGBO(120, 224, 195, .5),
-    500: const Color.fromRGBO(120, 224, 195, .6),
-    600: const Color.fromRGBO(120, 224, 195, .7),
-    700: const Color.fromRGBO(120, 224, 195, .8),
-    800: const Color.fromRGBO(120, 224, 195, .9),
-    900: const Color.fromRGBO(120, 224, 195, 1),
+  <int, Color>{
+    50: Color.fromRGBO(120, 224, 195, .1),
+    100: Color.fromRGBO(120, 224, 195, .2),
+    200: Color.fromRGBO(120, 224, 195, .3),
+    300: Color.fromRGBO(120, 224, 195, .4),
+    400: Color.fromRGBO(120, 224, 195, .5),
+    500: Color.fromRGBO(120, 224, 195, .6),
+    600: Color.fromRGBO(120, 224, 195, .7),
+    700: Color.fromRGBO(120, 224, 195, .8),
+    800: Color.fromRGBO(120, 224, 195, .9),
+    900: Color.fromRGBO(120, 224, 195, 1),
   },
 );
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'NY Times',
-      theme: ThemeData(
-        // headline6 used for AppBar color
-        primaryTextTheme: TextTheme(
-          headline6: TextStyle(color: Colors.white),
-        ),
-        appBarTheme: AppBarTheme(
-          iconTheme: IconThemeData(
-            color: Colors.white,
+  Widget build(BuildContext context) => MaterialApp(
+        title: 'NY Times',
+        home: const MyHomePage(title: 'NY Times Most Popular'),
+        theme: ThemeData(
+          // headline6 used for AppBar color
+          primaryTextTheme: const TextTheme(
+            headline6: TextStyle(color: Colors.white),
           ),
-        ),
-        primarySwatch: customColor,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'NY Times Most Popular'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  void _onIconClick() {}
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ArticleList(),
-      appBar: AppBar(
-        title: Text(
-          widget.title,
-        ),
-        leading: IconButton(
-          tooltip: 'Menu',
-          icon: const Icon(Icons.menu),
-          onPressed: () => _onIconClick(),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.search),
-            tooltip: 'Search',
-            onPressed: () => _onIconClick(),
+          appBarTheme: const AppBarTheme(
+            iconTheme: IconThemeData(
+              color: Colors.white,
+            ),
           ),
-          IconButton(
-            icon: const Icon(Icons.more_vert),
-            tooltip: 'More',
-            onPressed: () => _onIconClick(),
-          ),
-        ],
-      ),
-    );
-  }
+          primarySwatch: customColor,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+      );
 }

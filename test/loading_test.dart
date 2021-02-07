@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:ny_times_articles/global/messages.dart';
 import 'package:ny_times_articles/widgets/loading.dart';
 
@@ -18,7 +19,7 @@ void main() {
       // Build our app and trigger a frame.
       await tester.pumpWidget(createLoadingScreen);
 
-      expect(find.text(GlobalMessages.Loading), findsOneWidget);
+      expect(find.text(GlobalMessages.loadingMsg), findsOneWidget);
 
       expect(find.byType(Text), findsOneWidget);
     });

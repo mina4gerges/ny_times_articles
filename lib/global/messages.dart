@@ -1,12 +1,13 @@
 /// Set all global messages in one single class
 abstract class GlobalMessages {
-  static const String GoBack = 'Go back';
-  static const String Refresh = 'Refresh';
-  static const String Loading = 'Loading...';
-  static const String Error = 'An Error Occurred';
-  static const String UnknownError = 'Unknown Error';
-  static const String ArticleDetailPageTitle = 'Article';
-  static const String ArticleDetailTitle = 'Article title';
-  static const String NoArticlesFound = 'No Articles found';
-  static const String NoInternetConnection = 'No Internet connection';
+  static const String articleDetailPageTitle = 'Article';
+  static const String articleDetailTitle = 'Article title';
+
+  static const String goBackMsg = 'Go back';
+  static const String refreshMsg = 'Refresh';
+  static const String loadingMsg = 'Loading...';
+  static const String errorMsg = 'An error Occurred';
+  static const String unknownErrorMsg = 'Unknown error';
+  static const String noArticlesFoundMsg = 'No Articles found';
+  static const String noInternetConnectionMsg = 'No Internet connection';
 }

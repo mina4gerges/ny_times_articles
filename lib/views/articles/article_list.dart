@@ -1,17 +1,20 @@
-import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:ny_times_articles/widgets/error.dart';
-import 'package:ny_times_articles/global/messages.dart';
-import 'package:ny_times_articles/widgets/loading.dart';
-import 'package:ny_times_articles/models/error_model.dart';
-import 'package:ny_times_articles/models/article_model.dart';
-import 'package:ny_times_articles/services/article_service.dart';
-import 'package:ny_times_articles/views/article/article_item.dart';
-import 'package:ny_times_articles/controllers/article_controller.dart';
+import 'package:flutter/material.dart';
+
+import 'article_item.dart';
+import '../../widgets/error.dart';
+import '../../global/messages.dart';
+import '../../widgets/loading.dart';
+import '../../models/error_model.dart';
+import '../../models/article_model.dart';
+import '../../services/article_service.dart';
+import '../../controllers/article_controller.dart';
 
 /// ArticleList view to display all articles (using StatefulWidget because we
 /// are changing stats e.x: set articles data...)
 class ArticleList extends StatefulWidget {
+  const ArticleList({Key key}) : super(key: key);
+
   @override
   _ArticleListState createState() => _ArticleListState();
 }
@@ -32,7 +35,7 @@ class _ArticleListState extends State<ArticleList> {
   }
 
   // Fetch data using a controller and handle errors and loading status
-  void _getMostPopularArticles() async {
+  Future<void> _getMostPopularArticles() async {
     try {
       setState(() {
         isLoading = true;
@@ -42,16 +45,18 @@ class _ArticleListState extends State<ArticleList> {
 
       setState(() {
         error = false;
-        isLoading = false;
         errorDescription = '';
         articles = articleController.articles;
       });
     } catch (e) {
       setState(() {
         error = true;
-        articles = [];
+        articles = <Article>[];
+        errorDescription = (e?.message ?? '') as String;
+      });
+    } finally {
+      setState(() {
         isLoading = false;
-        errorDescription = e?.message ?? '';
       });
     }
   }
@@ -60,39 +65,40 @@ class _ArticleListState extends State<ArticleList> {
   Widget build(BuildContext context) {
     // Display a loading message while waiting for data to be fetched
     if (isLoading) {
-      return Loading();
+      return const Loading();
     }
 
     // Display a error message if any
-    if (error)
+    if (error) {
       return Error(
         errorMessage: ErrorMessage(
           description: errorDescription,
           action: ErrorAction(
-            title: GlobalMessages.Refresh,
+            title: GlobalMessages.refreshMsg,
             onPress: _getMostPopularArticles,
           ),
         ),
       );
+    }
 
     // If no articles found, display an error message
-    if (articles.length == 0)
+    if (articles.isEmpty) {
       return Error(
         errorMessage: ErrorMessage(
-          title: GlobalMessages.NoArticlesFound,
+          title: GlobalMessages.noArticlesFoundMsg,
           action: ErrorAction(
-            title: GlobalMessages.Refresh,
+            title: GlobalMessages.refreshMsg,
             onPress: _getMostPopularArticles,
           ),
         ),
       );
+    }
 
     // Display all fetched data in a list
     return ListView.separated(
       itemCount: articles.length,
-      itemBuilder: (BuildContext context, int index) {
-        return ArticleItem(article: articles[index]);
-      },
+      itemBuilder: (BuildContext context, int index) =>
+          ArticleItem(article: articles[index]),
       separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
   }

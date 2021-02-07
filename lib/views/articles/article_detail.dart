@@ -1,58 +1,56 @@
 import 'package:flutter/material.dart';
-import 'package:ny_times_articles/widgets/date.dart';
-import 'package:ny_times_articles/widgets/error.dart';
-import 'package:ny_times_articles/global/messages.dart';
-import 'package:ny_times_articles/models/error_model.dart';
-import 'package:ny_times_articles/widgets/white_space.dart';
-import 'package:ny_times_articles/models/article_model.dart';
+
+import '../../widgets/date.dart';
+import '../../widgets/error.dart';
+import '../../global/messages.dart';
+import '../../models/error_model.dart';
+import '../../widgets/white_space.dart';
+import '../../models/article_model.dart';
 
 /// ArticleDetail view to display article detail
 class ArticleDetail extends StatelessWidget {
+  const ArticleDetail({@required this.article, Key key}) : super(key: key);
+
   final Article article;
 
-  ArticleDetail({Key key, @required this.article}) : super(key: key);
-
   @override
-  Widget build(BuildContext context) {
-    // Using Scaffold because it is stand alone page
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(GlobalMessages.ArticleDetailPageTitle),
-      ),
-      body: _getBodyDisplay(context),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: const Text(GlobalMessages.articleDetailPageTitle),
+        ),
+        body: _getBodyDisplay(context),
+      );
 
   // Display the body of an article and handling error if any
   Widget _getBodyDisplay(BuildContext context) {
     try {
       return Container(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               article.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            WhiteSpace(),
+            const WhiteSpace(),
             Text(article.description),
-            WhiteSpace(space: 15),
+            const WhiteSpace(space: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Expanded(
                   child: Text(
                     article.author,
-                    style: TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 12),
                   ),
                 ),
                 Date(
                   date: article.creationDate,
-                  textStyle: TextStyle(fontSize: 12),
+                  textStyle: const TextStyle(fontSize: 12),
                 ),
               ],
             ),
@@ -60,13 +58,11 @@ class ArticleDetail extends StatelessWidget {
         ),
       );
     } catch (e) {
-      print("ERROR $e");
-
       return Error(
         errorMessage: ErrorMessage(
-          description: e?.message ?? null,
+          description: (e?.message ?? '') as String,
           action: ErrorAction(
-            title: GlobalMessages.GoBack,
+            title: GlobalMessages.goBackMsg,
             onPress: () => Navigator.pop(context),
           ),
         ),

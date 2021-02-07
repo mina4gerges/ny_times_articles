@@ -1,0 +1,19 @@
+include: package:pedantic/analysis_options.1.8.0.yaml
+
+analyzer:
+  exclude: [ build/** ]
+  strong-mode:
+    # A value of false ensures that the type inference engine
+    # never implicitly casts to a more specific type
+    implicit-casts: false
+
+linter:
+  rules:
+    - annotate_overrides
+    - await_only_futures
+    - camel_case_types
+    - close_sinks
+    - comment_references
+    - constant_identifier_names
+    - control_flow_in_finally
+    - empty_statements

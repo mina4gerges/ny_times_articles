@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:ny_times_articles/widgets/error.dart';
 import 'package:ny_times_articles/global/messages.dart';
 import 'package:ny_times_articles/models/error_model.dart';
@@ -10,9 +11,7 @@ void main() {
   Widget createErrorScreen2;
   Widget createErrorScreen3;
 
-  _test() => {
-        print("hi"),
-      };
+  _test() => print("hi");
 
   setUp(() {
     // Default error message
@@ -50,7 +49,7 @@ void main() {
       // Build our app and trigger a frame.
       await tester.pumpWidget(createErrorScreen1);
 
-      expect(find.text(GlobalMessages.Error), findsNWidgets(1));
+      expect(find.text(GlobalMessages.errorMsg), findsNWidgets(1));
 
       expect(find.byType(ElevatedButton), findsNothing);
 
@@ -75,7 +74,7 @@ void main() {
       // Build our app and trigger a frame.
       await tester.pumpWidget(createErrorScreen3);
 
-      expect(find.text(GlobalMessages.Error), findsOneWidget);
+      expect(find.text(GlobalMessages.errorMsg), findsOneWidget);
 
       expect(find.byType(ElevatedButton), findsOneWidget);
 
