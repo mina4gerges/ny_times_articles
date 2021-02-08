@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ny_times_articles/global/defaults.dart';
-import 'package:ny_times_articles/widgets/image.dart';
 
 import 'article_detail.dart';
 import '../../widgets/date.dart';
 import '../../widgets/white_space.dart';
 import '../../models/article_model.dart';
+import '../../global/defaults.dart';
+import '../../widgets/image.dart';
 
 // ArticleItem view to display each article in the list
 class ArticleItem extends StatelessWidget {

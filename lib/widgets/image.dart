@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ny_times_articles/global/defaults.dart';
 
 class ImageWidget extends StatelessWidget {
-  ImageWidget({
+  const ImageWidget({
     this.path,
     this.width,
     this.height,
@@ -34,7 +34,7 @@ class ImageWidget extends StatelessWidget {
           return Container(
             width: width,
             height: height,
-            child: Center(
+            child: const Center(
               child: CircularProgressIndicator(),
             ),
           );
@@ -45,7 +45,7 @@ class ImageWidget extends StatelessWidget {
                 Image(
           width: width,
           height: height,
-          image: AssetImage(DefaultValues.defaultImagePath),
+          image: const AssetImage(DefaultValues.defaultImagePath),
         ),
       );
     } else {

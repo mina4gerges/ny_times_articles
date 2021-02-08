@@ -17,7 +17,7 @@ class Article {
     List<Map<String, dynamic>> finalImages;
 
     // Contains an obj with two resolution, low and high
-    ImagePaths finalImagePaths =
+    final ImagePaths finalImagePaths =
         ImagePaths(imagePaths: Map<String, Map<String, dynamic>>());
 
     if (article['media'] != null) {
@@ -38,7 +38,7 @@ class Article {
           try {
             finalImagePaths.setImagePaths(getImageResolutions(finalImages));
           } catch (e) {
-            print("e");
+            finalImagePaths.setImagePaths(Map<String, Map<String, dynamic>>());
           }
         }
       }
@@ -57,7 +57,7 @@ class Article {
   // width, height)
   Map<String, Map<String, dynamic>> getImageResolutions(
       List<Map<String, dynamic>> finalImages) {
-    Map<String, Map<String, dynamic>> imageResolutions =
+    final Map<String, Map<String, dynamic>> imageResolutions =
         Map<String, Map<String, dynamic>>();
 
     try {
@@ -77,7 +77,7 @@ class Article {
   // Function to get image details, path, width, height
   Map<String, dynamic> getImageDetails(
       List<Map<String, dynamic>> finalImages, int index) {
-    Map<String, dynamic> imageDetails = Map<String, dynamic>();
+    final Map<String, dynamic> imageDetails = Map<String, dynamic>();
 
     try {
       imageDetails['path'] = finalImages[index]['url'] as String;

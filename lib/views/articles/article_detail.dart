@@ -38,12 +38,12 @@ class ArticleDetail extends StatelessWidget {
               style: DefaultValues.articleTitleStyle,
             ),
             Column(
-              children: [
+              children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(10),
                       child: ImageWidget(
                         isFromUrl: true,
                         path: article?.imagePaths?.getPathImageHighResolution(),
