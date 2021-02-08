@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/date.dart';
 import '../../widgets/error.dart';
+import '../../widgets/image.dart';
+import '../../global/defaults.dart';
 import '../../global/messages.dart';
 import '../../models/error_model.dart';
 import '../../widgets/white_space.dart';
@@ -28,31 +30,55 @@ class ArticleDetail extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(
               article.title,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+              textAlign: TextAlign.center,
+              style: DefaultValues.articleTitleStyle,
             ),
-            const WhiteSpace(),
-            Text(article.description),
-            const WhiteSpace(space: 15),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Expanded(
-                  child: Text(
-                    article.author,
-                    style: const TextStyle(fontSize: 12),
-                  ),
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: ImageWidget(
+                        isFromUrl: true,
+                        path: article?.imagePaths?.getPathImageHighResolution(),
+                        // -20 because of Container padding
+                        // (padding: const EdgeInsets.all(10))
+                        width: MediaQuery.of(context).size.width - 20,
+                        height:
+                            article?.imagePaths?.getHeightImageHighResolution(),
+                      ),
+                    ),
+                  ],
                 ),
-                Date(
-                  date: article.creationDate,
-                  textStyle: const TextStyle(fontSize: 12),
-                ),
+                const WhiteSpace(space: 20),
+                Text(article.description),
               ],
+            ),
+            const WhiteSpace(space: 15),
+            Container(
+              padding: const EdgeInsets.only(bottom: 25),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      article.author,
+                      style: DefaultValues.articleFooterStyle,
+                    ),
+                  ),
+                  Date(
+                    date: article.creationDate,
+                    iconColor: DefaultValues.secondaryColor,
+                    textStyle: DefaultValues.articleFooterStyle,
+                  ),
+                ],
+              ),
             ),
           ],
         ),

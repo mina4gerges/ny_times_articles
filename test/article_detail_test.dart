@@ -15,14 +15,27 @@ void main() {
   Widget createArticleDetailScreen2;
 
   setUp(() {
+    Map<String, Map<String, dynamic>> tempImagePaths =
+        Map<String, Map<String, dynamic>>();
+    Map<String, dynamic> imageDetails = Map<String, dynamic>();
+
+    imageDetails['path'] = 'https://i.pinimg.com/564x/2a/d6/0a/2ad60a09e1a5bf1'
+        '8fb2d939b7822cd99.jpg';
+    imageDetails['width'] = 10.0;
+    imageDetails['height'] = 10.0;
+
+    tempImagePaths['highResolutionDetail'] = imageDetails;
+
+    ImagePaths imagePaths = ImagePaths(imagePaths: tempImagePaths);
+
     article1 = Article(
       id: 1,
       title: 'title 1',
-      imagePath: null,
       author: 'author 1',
       section: 'section 1',
-      description: 'description 1',
+      imagePaths: imagePaths,
       creationDate: '2021-02-04',
+      description: 'description 1',
     );
 
     article2 = Article(
@@ -60,6 +73,8 @@ void main() {
 
       expect(find.text(GlobalMessages.goBackMsg), findsNothing);
 
+      expect(find.byType(Image), findsOneWidget);
+
       expect(find.byType(Text), findsNWidgets(5));
 
       expect(find.byType(Date), findsOneWidget);
@@ -83,6 +98,8 @@ void main() {
       expect(find.text(GlobalMessages.errorMsg), findsOneWidget);
 
       expect(find.text(GlobalMessages.goBackMsg), findsOneWidget);
+
+      expect(find.byType(Image), findsNothing);
 
       expect(find.byType(Text), findsNWidgets(4));
 

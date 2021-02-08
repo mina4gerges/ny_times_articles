@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../global/messages.dart';
+import '../global/defaults.dart';
 import '../widgets/white_space.dart';
 
 /// Widget to display a loading message and a circular loading indicator
@@ -16,7 +17,7 @@ class Loading extends StatelessWidget {
             WhiteSpace(),
             Text(
               GlobalMessages.loadingMsg,
-              style: TextStyle(fontSize: 16),
+              style: DefaultValues.loadingMsgStyle,
             ),
           ],
         ),

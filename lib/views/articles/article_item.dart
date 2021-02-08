@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ny_times_articles/global/defaults.dart';
+import 'package:ny_times_articles/widgets/image.dart';
 
 import 'article_detail.dart';
 import '../../widgets/date.dart';
@@ -18,7 +20,9 @@ class ArticleItem extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            _getLeftColumnDisplay(article.imagePath),
+            _getLeftColumnDisplay(
+              article?.imagePaths?.getImageLowResolutionPath(),
+            ),
             _getMiddleColumnDisplay(article),
             _getRightColumnDisplay(context),
           ],
@@ -26,36 +30,13 @@ class ArticleItem extends StatelessWidget {
       );
 
   // Left side display of the article
-  Widget _getLeftColumnDisplay(String imagePath) {
-    const double width = 70;
-    const double height = 70;
-    const AssetImage defaultImage = AssetImage('assets/images/ny_icon.png');
-
-    return ClipOval(
-      // If imagePath is found, display the provided path, else display a
-      // default image.
-      child: imagePath != null
-          ? Image.network(
-              imagePath,
-              width: width,
-              height: height,
-              fit: BoxFit.cover,
-              // If error while fetching the image, display a default image
-              errorBuilder: (BuildContext context, Object exception,
-                      StackTrace stackTrace) =>
-                  const Image(
-                width: width,
-                height: height,
-                image: defaultImage,
-              ),
-            )
-          : const Image(
-              width: width,
-              height: height,
-              image: defaultImage,
-            ),
-    );
-  }
+  Widget _getLeftColumnDisplay(String imagePaths) => ClipOval(
+          child: ImageWidget(
+        width: 70,
+        height: 70,
+        isFromUrl: true,
+        path: imagePaths,
+      ));
 
   // Middle side display of the article
   Widget _getMiddleColumnDisplay(Article article) => Expanded(
@@ -70,7 +51,7 @@ class ArticleItem extends StatelessWidget {
               article?.title ?? '',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
+              style: DefaultValues.articleTitleStyle,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,9 +60,7 @@ class ArticleItem extends StatelessWidget {
                   article?.author ?? '',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    color: Color(0xFF848484),
-                  ),
+                  style: DefaultValues.articleBodyStyle,
                 ),
                 const WhiteSpace(space: 2),
                 Row(
@@ -92,19 +71,15 @@ class ArticleItem extends StatelessWidget {
                         article?.section?.toUpperCase() ?? '',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          color: Color(0xFF848484),
-                        ),
+                        style: DefaultValues.articleFooterStyle,
                       ),
                     ),
                     if (article.creationDate != null)
                       Date(
                         date: article.creationDate,
-                        iconColor: const Color(0xFF848484),
-                        textStyle: const TextStyle(
-                          color: Color(0xFF848484),
-                        ),
-                      )
+                        iconColor: DefaultValues.secondaryColor,
+                        textStyle: DefaultValues.articleFooterStyle,
+                      ),
                   ],
                 ),
               ],

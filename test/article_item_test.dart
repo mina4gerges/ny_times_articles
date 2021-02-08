@@ -13,21 +13,33 @@ void main() {
   Widget createArticleDetailScreen1;
   Widget createArticleDetailScreen2;
 
+  Map<String, Map<String, dynamic>> tempImagePaths =
+      Map<String, Map<String, dynamic>>();
+  Map<String, dynamic> imageDetails = Map<String, dynamic>();
+
+  imageDetails['path'] =
+      'https://i.pinimg.com/564x/2a/d6/0a/2ad60a09e1a5bf18fb2d939b7822cd99.jpg';
+  imageDetails['width'] = 10.0;
+  imageDetails['height'] = 10.0;
+
+  tempImagePaths['lowResolutionDetail'] = imageDetails;
+
+  ImagePaths imagePaths = ImagePaths(imagePaths: tempImagePaths);
+
   setUp(() {
     article1 = Article(
       id: 1,
       title: 'title 1',
       author: 'author 1',
       section: 'section 1',
-      description: 'description 1',
+      imagePaths: imagePaths,
       creationDate: '2021-02-04',
-      imagePath:
-          'https://i.pinimg.com/564x/2a/d6/0a/2ad60a09e1a5bf18fb2d939b7822cd99.jpg',
+      description: 'description 1',
     );
 
     article2 = Article(
       id: 2,
-      imagePath: null,
+      imagePaths: null,
       title: 'title 2',
       author: 'author 2',
       section: 'section 2',

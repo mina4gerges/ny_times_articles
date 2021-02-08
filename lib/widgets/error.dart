@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../models/error_model.dart';
 import '../widgets/white_space.dart';
+import '../global/defaults.dart';
+
 
 /// Widget to display error message, with a description and an action
 /// Using a required param which is ErrorMessage (contains the error message,
@@ -19,7 +21,7 @@ class Error extends StatelessWidget {
             Text(
               errorMessage.title,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 20),
+              style: DefaultValues.errorTitleStyle,
             ),
 
             const WhiteSpace(),
@@ -29,7 +31,7 @@ class Error extends StatelessWidget {
               Text(
                 errorMessage.description,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.grey),
+                style: DefaultValues.errorDescriptionStyle,
               ),
 
             const WhiteSpace(space: 3),
