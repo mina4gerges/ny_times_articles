@@ -126,10 +126,10 @@ Mobile application written in flutter to get the most popular articles.
     - How to generate reports ?
 
         - Open a command line/terminal (root folder)
+        
+        - Download all dependencies **flutter pub get**
 
         - Run tests **flutter test --machine > tests.output**
-
-        - Download all dependencies **flutter pub get**
 
         - Compute coverage **flutter test --coverage**
 
