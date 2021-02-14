@@ -19,7 +19,7 @@ class ImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isFromUrl && path != null) {
+    if (isFromUrl && path != null && path != '') {
       return Image.network(
         path,
         fit: fit,
@@ -52,7 +52,9 @@ class ImageWidget extends StatelessWidget {
       return Image(
         width: width,
         height: height,
-        image: AssetImage(path != null ? path : DefaultValues.defaultImagePath),
+        image: AssetImage((path != null && path != '')
+            ? path
+            : DefaultValues.defaultImagePath),
       );
     }
   }
