@@ -109,21 +109,27 @@ class ImagePaths {
     imagePaths = _imagePaths;
   }
 
-  String getPathImageHighResolution() =>
-      imagePaths['highResolutionDetail']['path'] as String;
+  String getPathImageHighResolution() => imagePaths.isNotEmpty
+      ? imagePaths['highResolutionDetail']['path'] as String
+      : '';
 
-  double getImageHighResolutionWidth() =>
-      imagePaths['highResolutionDetail']['width'] as double;
+  double getImageHighResolutionWidth() => imagePaths.isNotEmpty
+      ? imagePaths['highResolutionDetail']['width'] as double
+      : 0.0;
 
-  double getHeightImageHighResolution() =>
-      imagePaths['highResolutionDetail']['height'] as double;
+  double getHeightImageHighResolution() => imagePaths.isNotEmpty
+      ? imagePaths['highResolutionDetail']['height'] as double
+      : 0.0;
 
-  String getImageLowResolutionPath() =>
-      imagePaths['lowResolutionDetail']['path'] as String;
+  String getImageLowResolutionPath() => imagePaths.isNotEmpty
+      ? imagePaths['lowResolutionDetail']['path'] as String
+      : '';
 
-  double getImageLowResolutionWidth() =>
-      imagePaths['lowResolutionDetail']['width'] as double;
+  double getImageLowResolutionWidth() => imagePaths.isNotEmpty
+      ? imagePaths['lowResolutionDetail']['width'] as double
+      : 0.0;
 
-  double getImageLowResolutionHeight() =>
-      imagePaths['lowResolutionDetail']['height'] as double;
+  double getImageLowResolutionHeight() => imagePaths.isNotEmpty
+      ? imagePaths['lowResolutionDetail']['height'] as double
+      : 0.0;
 }
